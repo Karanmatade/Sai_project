@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="deep_blue">#0B1E3C</color>
+    <color name="royal_blue">#123B74</color>
+    <color name="gold">#D4AF37</color>
+    <color name="gold_light">#E6C55C</color>
+    <color name="green_available">#2E7D32</color>
+    <color name="red_booked">#C62828</color>
+    <color name="card_bg">#FFFFFFFF</color>
+    <color name="chip_green">#E6F4EA</color>
+    <color name="chip_red">#FDE7E9</color>
+</resources>
