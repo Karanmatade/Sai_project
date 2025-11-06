@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F4FF">
+    android:background="@drawable/bg_futuristic_gradient">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginTop="24dp"
-        android:backgroundTint="@color/deep_blue"
-        android:titleTextColor="@color/white"
+        android:backgroundTint="#20FFFFFF"
+        android:titleTextColor="#9BC5D6"
         android:navigationIcon="@android:drawable/ic_media_previous"
-        app:navigationIconTint="@color/white"
-        android:title="Booking Details" />
+        app:navigationIconTint="#9BC5D6"
+        app:title="BOOKING DETAILS" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -34,9 +34,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#F8F4FF">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="#20FFFFFF"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#506BC5D6">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -47,7 +49,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#E0E0E0"
+                        android:background="#20FFFFFF"
                         android:padding="12dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
@@ -58,7 +60,7 @@
                             android:layout_weight="1"
                             android:text="🏨 Room Information"
                             android:textStyle="bold"
-                            android:textColor="@android:color/black"
+                            android:textColor="#9BC5D6"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -76,7 +78,7 @@
                             android:text="Room #200"
                             android:textSize="24sp"
                             android:textStyle="bold"
-                            android:textColor="@color/deep_blue"
+                            android:textColor="#9BC5D6"
                             android:gravity="center"
                             android:layout_marginBottom="16dp" />
 
@@ -142,8 +144,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="Active"
                                 android:textStyle="bold"
-                                android:textColor="@android:color/white"
-                                android:background="@drawable/status_badge"
+                            android:textColor="#9BC5D6"
+                            android:background="@drawable/bg_neon_glow"
                                 android:paddingHorizontal="12dp"
                                 android:paddingVertical="4dp" />
                         </LinearLayout>
@@ -158,9 +160,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#F8F4FF">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="#20FFFFFF"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#506BC5D6">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -171,7 +175,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#E0E0E0"
+                        android:background="#20FFFFFF"
                         android:padding="12dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
@@ -182,7 +186,7 @@
                             android:layout_weight="1"
                             android:text="🧾 Guest Information"
                             android:textStyle="bold"
-                            android:textColor="@android:color/black"
+                            android:textColor="#9BC5D6"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -290,9 +294,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#F8F4FF">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="#20FFFFFF"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#506BC5D6">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -303,7 +309,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#E0E0E0"
+                        android:background="#20FFFFFF"
                         android:padding="12dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
@@ -314,7 +320,7 @@
                             android:layout_weight="1"
                             android:text="🪪 Identification Information"
                             android:textStyle="bold"
-                            android:textColor="@android:color/black"
+                            android:textColor="#9BC5D6"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -378,9 +384,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp"
-                app:cardBackgroundColor="#F8F4FF">
+                app:cardCornerRadius="24dp"
+                app:cardElevation="12dp"
+                app:cardBackgroundColor="#20FFFFFF"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#506BC5D6">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -391,7 +399,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#E0E0E0"
+                        android:background="#20FFFFFF"
                         android:padding="12dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical">
@@ -402,7 +410,7 @@
                             android:layout_weight="1"
                             android:text="🚗 Vehicle Information"
                             android:textStyle="bold"
-                            android:textColor="@android:color/black"
+                            android:textColor="#9BC5D6"
                             android:textSize="16sp" />
                     </LinearLayout>
 

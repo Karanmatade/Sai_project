@@ -18,6 +18,8 @@
         <activity android:name=".AllBookingsActivity" android:exported="false" />
         <activity android:name=".ModifyBookingActivity" android:exported="false" />
         <activity android:name=".GuestDetailsActivity" android:exported="false" />
+        <activity android:name=".AllGuestsActivity" android:exported="false" />
+        <activity android:name=".GuestInfoActivity" android:exported="false" />
         <activity android:name=".BookingDetailsActivity" android:exported="false" />
         <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".SplashActivity" android:exported="true">

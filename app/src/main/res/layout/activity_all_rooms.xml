@@ -1,29 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/bg_light_gradient">
 
+    <!-- Top App Bar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         style="@style/Widget.Material3.Toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/deep_blue"
-        android:titleTextColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:titleTextColor="@color/text_primary"
         android:navigationIcon="@android:drawable/ic_media_previous"
-        app:navigationIconTint="@color/white"
-        android:title="All Rooms" />
+        app:navigationIconTint="@color/accent_green"
+        app:title="ALL ROOMS"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Search Bar Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchBarCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeWidth="1dp"
+        app:strokeColor="#E2E8F0"
+        android:background="@drawable/bg_card_light"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Search Input -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/searchInputCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#F8FAFC"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_search_light"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        android:tint="@color/accent_green"
+                        android:layout_marginEnd="16dp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSearchRooms"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="Search rooms..."
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_tertiary"
+                        android:textSize="17sp"
+                        android:padding="0dp"
+                        android:minHeight="48dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.02" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Filter Label -->
+            <TextView
+                android:id="@+id/tvFilterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter by Status"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintTop_toBottomOf="@id/searchInputCard"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Filter Chips -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:singleSelection="true"
+                app:selectionRequired="false"
+                app:chipSpacing="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tvFilterLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:text="All"
+                    android:checked="true"
+                    android:background="@drawable/bg_chip_light_active"
+                    android:textColor="@color/accent_green"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:minHeight="44dp"
+                    android:paddingHorizontal="24dp"
+                    android:elevation="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterAvailable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:text="Available"
+                    android:background="@drawable/bg_chip_light_inactive"
+                    android:textColor="@color/success_green"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:minHeight="44dp"
+                    android:paddingHorizontal="24dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterBooked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:text="Booked"
+                    android:background="@drawable/bg_chip_light_inactive"
+                    android:textColor="@color/neon_pink"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:minHeight="44dp"
+                    android:paddingHorizontal="24dp" />
+            </com.google.android.material.chip.ChipGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Rooms RecyclerView - Positioned directly below searchBarCard -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerRooms"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:padding="16dp"
-        android:paddingTop="96dp"
-        android:clipToPadding="false" />
+        android:paddingTop="0dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/searchBarCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

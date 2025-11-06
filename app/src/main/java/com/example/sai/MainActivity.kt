@@ -1,6 +1,7 @@
 package com.example.sai
 
 import android.os.Bundle
+import android.view.animation.AnimationUtils
 import android.widget.Toast
 import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
@@ -16,6 +17,15 @@ class MainActivity : AppCompatActivity() {
         val etUsername = findViewById<TextInputEditText>(R.id.etUsername)
         val etPassword = findViewById<TextInputEditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val loginCard = findViewById<androidx.cardview.widget.CardView>(R.id.loginCard)
+        val appTitle = findViewById<android.widget.TextView>(R.id.appTitle)
+
+        // Apply animations
+        val slideUp = AnimationUtils.loadAnimation(this, R.anim.slide_up)
+        val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        
+        loginCard?.startAnimation(slideUp)
+        appTitle?.startAnimation(fadeIn)
 
         btnLogin.setOnClickListener {
             val user = etUsername.text?.toString()?.trim() ?: ""

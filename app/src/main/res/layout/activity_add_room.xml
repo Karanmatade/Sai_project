@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/bg_light_gradient">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         style="@style/Widget.Material3.Toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/deep_blue"
-        android:titleTextColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:titleTextColor="@color/text_primary"
         android:navigationIcon="@android:drawable/ic_media_previous"
-        app:navigationIconTint="@color/white"
-        android:title="Add Room" />
+        app:navigationIconTint="@color/accent_green"
+        app:title="ADD ROOM" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,85 +29,121 @@
             android:minHeight="600dp"
             android:padding="24dp">
 
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_card_light"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintVertical_bias="0.3">
+                app:layout_constraintVertical_bias="0.3"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="80dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Room Number">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etRoomNumber"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Room Type"
-                android:layout_marginTop="12dp">
-                <AutoCompleteTextView
-                    android:id="@+id/spType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Room Number"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                        app:startIconTint="@color/accent_green">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etRoomNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_tertiary" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Room Price (₹)"
-                android:layout_marginTop="12dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Room Type"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_view"
+                        app:startIconTint="@color/accent_green"
+                        android:layout_marginTop="16dp">
+                        <AutoCompleteTextView
+                            android:id="@+id/spType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="none"
+                            android:textColor="@color/text_primary" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAdd"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Add Room"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/btn_gold_gradient" />
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Room Price (₹)"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_info_details"
+                        app:startIconTint="@color/accent_green"
+                        android:layout_marginTop="16dp">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPrice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_tertiary" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnUpdate"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Update Room"
-                android:textColor="@color/deep_blue"
-                app:strokeColor="@color/deep_blue"
-                android:layout_marginTop="8dp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAdd"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="ADD ROOM"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginTop="24dp"
+                        android:background="@drawable/bg_button_green"
+                        android:elevation="4dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Delete Room"
-                android:textColor="@color/red_booked"
-                app:strokeColor="@color/red_booked"
-                android:layout_marginTop="8dp" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnUpdate"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="UPDATE ROOM"
+                        android:textStyle="bold"
+                        android:textColor="@color/accent_green"
+                        app:strokeColor="#804CAF50"
+                        android:layout_marginTop="12dp" />
 
-            </LinearLayout>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDelete"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="DELETE ROOM"
+                        android:textStyle="bold"
+                        android:textColor="@color/neon_pink"
+                        app:strokeColor="#80E91E63"
+                        android:layout_marginTop="12dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

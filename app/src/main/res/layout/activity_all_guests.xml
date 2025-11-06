@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_light_gradient">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        style="@style/Widget.Material3.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:titleTextColor="@color/text_primary"
+        android:navigationIcon="@android:drawable/ic_media_previous"
+        app:navigationIconTint="@color/accent_green"
+        app:title="GUEST DETAILS"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Search Bar Card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchBarCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeWidth="1dp"
+        app:strokeColor="#E2E8F0"
+        android:background="@drawable/bg_card_light"
+        app:layout_constraintTop_toBottomOf="@id/topAppBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <!-- Search Input -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/searchInputCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#F8FAFC"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_search_light"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@android:drawable/ic_menu_search"
+                        android:tint="@color/accent_green"
+                        android:layout_marginEnd="16dp" />
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSearchGuests"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/transparent"
+                        android:hint="Search guests..."
+                        android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_tertiary"
+                        android:textSize="17sp"
+                        android:padding="0dp"
+                        android:minHeight="48dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.02" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Date Filter Label -->
+            <TextView
+                android:id="@+id/tvDateFilterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter by Date"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintTop_toBottomOf="@id/searchInputCard"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Date Filter Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/dateFilterCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#F8FAFC"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                app:layout_constraintTop_toBottomOf="@id/tvDateFilterLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_today"
+                        android:tint="@color/accent_green"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:id="@+id/tvSelectedDate"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="All Dates"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSelectDate"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Select Date"
+                        android:textSize="12sp"
+                        app:strokeColor="#804CAF50"
+                        android:textColor="@color/accent_green" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnClearDate"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clear"
+                        android:textSize="12sp"
+                        android:textColor="@color/text_secondary"
+                        android:layout_marginStart="8dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Filter Label -->
+            <TextView
+                android:id="@+id/tvFilterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick Filters"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="12dp"
+                app:layout_constraintTop_toBottomOf="@id/dateFilterCard"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <!-- Filter Chips -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilters"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:singleSelection="false"
+                app:selectionRequired="false"
+                app:chipSpacing="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tvFilterLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:text="All"
+                    android:checked="true"
+                    android:background="@drawable/bg_chip_light_active"
+                    android:textColor="@color/accent_green"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:minHeight="44dp"
+                    android:paddingHorizontal="24dp"
+                    android:elevation="2dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterToday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:text="Today"
+                    android:background="@drawable/bg_chip_light_inactive"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:minHeight="44dp"
+                    android:paddingHorizontal="24dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterThisWeek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:text="This Week"
+                    android:background="@drawable/bg_chip_light_inactive"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:minHeight="44dp"
+                    android:paddingHorizontal="24dp" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Guests RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerGuests"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/searchBarCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

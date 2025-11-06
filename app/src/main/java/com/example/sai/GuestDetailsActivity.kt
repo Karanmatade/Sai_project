@@ -1,6 +1,11 @@
 package com.example.sai
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -37,6 +42,8 @@ class GuestDetailsActivity : AppCompatActivity() {
 
         setupIdTypeSpinner()
         setupClickListeners(bookingId)
+        animateCardsEntry()
+        setupInputFieldAnimations()
     }
 
     private fun setupIdTypeSpinner() {
@@ -46,13 +53,136 @@ class GuestDetailsActivity : AppCompatActivity() {
     }
 
     private fun setupClickListeners(bookingId: Int) {
-        binding.btnSaveDetails.setOnClickListener {
-            saveGuestDetails(bookingId)
+        binding.btnSaveDetails.setOnClickListener { view ->
+            animateButtonPress(view) {
+                saveGuestDetails(bookingId)
+            }
         }
 
-        binding.btnCancel.setOnClickListener {
-            finish()
+        binding.btnCancel.setOnClickListener { view ->
+            animateButtonPress(view) {
+                finish()
+            }
         }
+    }
+
+    private fun animateCardsEntry() {
+        val cards = listOf(
+            binding.cardGuestInfo,
+            binding.cardIdInfo,
+            binding.cardVehicleInfo,
+            binding.cardPaymentInfo
+        )
+
+        cards.forEachIndexed { index, card ->
+            card.alpha = 0f
+            card.translationY = 50f
+            
+            Handler(Looper.getMainLooper()).postDelayed({
+                card.animate()
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(400)
+                    .setStartDelay((index * 100).toLong())
+                    .setInterpolator(android.view.animation.DecelerateInterpolator())
+                    .start()
+            }, (index * 100).toLong())
+        }
+
+        // Animate buttons
+        Handler(Looper.getMainLooper()).postDelayed({
+            val buttonContainer = binding.btnCancel.parent as View
+            buttonContainer.alpha = 0f
+            buttonContainer.translationY = 30f
+            buttonContainer.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(android.view.animation.DecelerateInterpolator())
+                .start()
+        }, 500)
+    }
+
+    private fun setupInputFieldAnimations() {
+        val inputFields = listOf(
+            binding.etFolioNumber,
+            binding.etLastName,
+            binding.etFirstName,
+            binding.etAddress,
+            binding.etCompany,
+            binding.spIdType,
+            binding.etIdNumber,
+            binding.etVehicle,
+            binding.etVehicleModel,
+            binding.etPlateNumber
+        )
+
+        inputFields.forEach { field ->
+            field.setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    view.animate()
+                        .scaleX(1.02f)
+                        .scaleY(1.02f)
+                        .setDuration(200)
+                        .start()
+                } else {
+                    view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(200)
+                        .start()
+                }
+            }
+        }
+    }
+
+    private fun animateButtonPress(view: View, action: () -> Unit) {
+        view.animate()
+            .scaleX(0.95f)
+            .scaleY(0.95f)
+            .setDuration(100)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .setListener(null)
+                        .start()
+                    action()
+                }
+            })
+            .start()
+    }
+
+    private fun animateSuccessFeedback(action: () -> Unit) {
+        val cards = listOf(
+            binding.cardGuestInfo,
+            binding.cardIdInfo,
+            binding.cardVehicleInfo,
+            binding.cardPaymentInfo
+        )
+
+        cards.forEachIndexed { index, card ->
+            Handler(Looper.getMainLooper()).postDelayed({
+                card.animate()
+                    .scaleX(1.05f)
+                    .scaleY(1.05f)
+                    .setDuration(150)
+                    .withEndAction {
+                        card.animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .setDuration(150)
+                            .start()
+                    }
+                    .start()
+            }, (index * 50).toLong())
+        }
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            action()
+        }, 300)
     }
 
     private fun saveGuestDetails(bookingId: Int) {
@@ -95,8 +225,13 @@ class GuestDetailsActivity : AppCompatActivity() {
             if (guestId > 0) {
                 // Update booking with payment method
                 bookingVm.updateBookingPaymentMethod(bookingId, paymentMethod) {
-                    Snackbar.make(binding.root, "Guest Details Saved Successfully", Snackbar.LENGTH_LONG).show()
-                    finish()
+                    // Show success animation
+                    animateSuccessFeedback {
+                        Snackbar.make(binding.root, "Guest Details Saved Successfully", Snackbar.LENGTH_LONG).show()
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            finish()
+                        }, 500)
+                    }
                 }
             } else {
                 Toast.makeText(this, "Failed to save guest details", Toast.LENGTH_SHORT).show()

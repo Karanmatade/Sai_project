@@ -1,11 +1,14 @@
 package com.example.sai
 
 import android.app.DatePickerDialog
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import android.view.View
-import android.widget.AdapterView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -44,6 +47,9 @@ class ModifyBookingActivity : AppCompatActivity() {
             selectedBooking = latest.getOrNull(position)
         }
 
+        animateCardsEntry()
+        setupButtonAnimations()
+
         lifecycleScope.launch {
             bookingVm.bookings.collectLatest { list ->
                 latest = list
@@ -55,24 +61,95 @@ class ModifyBookingActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnExtend.setOnClickListener {
-            val b = selectedBooking ?: return@setOnClickListener
-            val currentOut = df.parse(b.checkOutDate) ?: return@setOnClickListener
-            pickDate(minDate = currentOut.time + 24 * 60 * 60 * 1000) { newDate ->
-                val updated = b.copy(checkOutDate = newDate)
-                bookingVm.updateBooking(updated)
-                Toast.makeText(this, "Booking extended", Toast.LENGTH_SHORT).show()
+        binding.btnExtend.setOnClickListener { view ->
+            val b = selectedBooking
+            if (b == null) {
+                Toast.makeText(this, "Please select a booking", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            val currentOut = df.parse(b.checkOutDate)
+            if (currentOut == null) {
+                Toast.makeText(this, "Invalid checkout date", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            animateButtonPress(view) {
+                pickDate(minDate = currentOut.time + 24 * 60 * 60 * 1000) { newDate ->
+                    val updated = b.copy(checkOutDate = newDate)
+                    bookingVm.updateBooking(updated)
+                    Toast.makeText(this@ModifyBookingActivity, "Booking extended", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
-        binding.btnCancel.setOnClickListener {
-            val b = selectedBooking ?: return@setOnClickListener
-            if (b.status == "Cancelled") { Toast.makeText(this, "Already cancelled", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
-            val updated = b.copy(status = "Cancelled")
-            bookingVm.updateBooking(updated)
-            roomVm.setBooked(b.roomNumber, false)
-            Toast.makeText(this, "Booking cancelled", Toast.LENGTH_SHORT).show()
+        binding.btnCancel.setOnClickListener { view ->
+            val b = selectedBooking
+            if (b == null) {
+                Toast.makeText(this, "Please select a booking", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (b.status == "Cancelled") { 
+                Toast.makeText(this, "Already cancelled", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener 
+            }
+            animateButtonPress(view) {
+                val updated = b.copy(status = "Cancelled")
+                bookingVm.updateBooking(updated)
+                roomVm.setBooked(b.roomNumber, false)
+                Toast.makeText(this@ModifyBookingActivity, "Booking cancelled", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+
+    private fun animateCardsEntry() {
+        val card = binding.searchBarCard
+        card.alpha = 0f
+        card.translationY = 50f
+        
+        Handler(Looper.getMainLooper()).postDelayed({
+            card.animate()
+                .alpha(1f)
+                .translationY(0f)
+                .setDuration(400)
+                .setInterpolator(android.view.animation.DecelerateInterpolator())
+                .start()
+        }, 100)
+    }
+
+    private fun setupButtonAnimations() {
+        binding.spBookings.setOnFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                view.animate()
+                    .scaleX(1.02f)
+                    .scaleY(1.02f)
+                    .setDuration(200)
+                    .start()
+            } else {
+                view.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(200)
+                    .start()
+            }
+        }
+    }
+
+    private fun animateButtonPress(view: View, action: () -> Unit) {
+        view.animate()
+            .scaleX(0.95f)
+            .scaleY(0.95f)
+            .setDuration(100)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    view.animate()
+                        .scaleX(1f)
+                        .scaleY(1f)
+                        .setDuration(100)
+                        .setListener(null)
+                        .start()
+                    action()
+                }
+            })
+            .start()
     }
 
     private fun pickDate(minDate: Long? = null, onPicked: (String) -> Unit) {

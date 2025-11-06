@@ -4,84 +4,106 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:layout_marginBottom="16dp"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="6dp"
-    app:cardBackgroundColor="#F8F4FF">
+    app:cardCornerRadius="24dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:strokeWidth="1dp"
+    app:strokeColor="#E2E8F0"
+    android:background="@drawable/bg_room_card_light">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/tvRoomNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Room #200"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_blue"
-            android:gravity="center" />
+            android:textColor="@color/accent_green"
+            android:letterSpacing="0.05"
+            android:gravity="start" />
+
+        <View
+            android:layout_width="60dp"
+            android:layout_height="2dp"
+            android:layout_gravity="start"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_button_green" />
 
         <TextView
             android:id="@+id/tvDates"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="2024-01-15 → 2024-01-18"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:gravity="center" />
+            android:textSize="15sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="start"
+            android:fontFamily="sans-serif-medium" />
 
         <TextView
             android:id="@+id/tvGuestName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="John Doe"
-            android:textSize="12sp"
-            android:textColor="@android:color/darker_gray"
-            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/text_tertiary"
+            android:gravity="start"
             android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/divider_color" />
 
         <TextView
             android:id="@+id/tvTotalPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Total Price: ₹6000"
-            android:textSize="16sp"
+            android:text="Total Price: ₹6,000"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_blue"
-            android:gravity="center" />
+            android:textColor="@color/accent_green"
+            android:gravity="start" />
 
         <TextView
             android:id="@+id/tvPaymentMethod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="6dp"
             android:text="Payment: Cash"
             android:textSize="14sp"
-            android:textColor="@android:color/black"
-            android:gravity="center" />
+            android:textColor="@color/text_secondary"
+            android:gravity="start" />
 
-        <TextView
+        <com.google.android.material.chip.Chip
             android:id="@+id/tvStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            style="@style/Widget.Material3.Chip.Suggestion"
             android:text="Active"
-            android:textSize="12sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:background="@drawable/status_badge"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp" />
+            android:textSize="13sp"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="10dp"
+            android:minHeight="40dp"
+            android:elevation="4dp"
+            android:fontFamily="sans-serif-medium" />
 
     </LinearLayout>
 

@@ -1,8 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Sai" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Futuristic Theme Customization -->
+        <item name="colorPrimary">@color/accent_glow</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/card_glass</item>
+        <item name="colorOnPrimaryContainer">@color/accent_glow</item>
+        <item name="colorSecondary">@color/neon_cyan</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">@color/dark_space</item>
+        <item name="colorOnSurface">@color/text_glow</item>
+        <item name="android:windowBackground">@drawable/bg_futuristic_gradient</item>
     </style>
 
     <style name="Theme.Sai" parent="Base.Theme.Sai" />

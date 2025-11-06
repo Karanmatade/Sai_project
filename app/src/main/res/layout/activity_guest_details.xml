@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F4FF">
+    android:background="@drawable/bg_light_gradient">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         style="@style/Widget.Material3.Toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@color/deep_blue"
-        android:titleTextColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFFFFF"
+        android:titleTextColor="@color/text_primary"
         android:navigationIcon="@android:drawable/ic_media_previous"
-        app:navigationIconTint="@color/white"
-        android:title="Guest Details" />
+        app:navigationIconTint="@color/accent_green"
+        app:title="GUEST INFORMATION" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,248 +27,504 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:paddingTop="80dp">
 
             <!-- Guest Information Section -->
-            <TextView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGuestInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🧾 Guest Information"
-                android:textStyle="bold"
-                android:textColor="@color/deep_blue"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_card_light">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:hint="Folio Number">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etFolioNumber"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="4dp">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:hint="Last Name">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etLastName"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <!-- Section Header -->
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:hint="First Name">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etFirstName"
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_myplaces"
+                            android:tint="@color/accent_green"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="GUEST INFORMATION"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp"
+                            android:letterSpacing="0.05" />
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="3dp"
+                            android:background="@drawable/bg_button_green"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="Folio Number"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                        app:startIconTint="@color/accent_green">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etFolioNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_tertiary" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:hint="Address">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="Company">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etCompany"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="Last Name"
+                            app:boxStrokeColor="#804CAF50"
+                            app:hintTextColor="@color/text_secondary"
+                            app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                            app:startIconTint="@color/accent_green">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etLastName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_tertiary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:hint="First Name"
+                            app:boxStrokeColor="#804CAF50"
+                            app:hintTextColor="@color/text_secondary"
+                            app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                            app:startIconTint="@color/accent_green">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etFirstName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_tertiary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:hint="Address"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_mylocation"
+                        app:startIconTint="@color/accent_green">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_tertiary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Company"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_info_details"
+                        app:startIconTint="@color/accent_green">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCompany"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_tertiary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Identification Section -->
-            <TextView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardIdInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🪪 Identification Information"
-                android:textStyle="bold"
-                android:textColor="@color/deep_blue"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_card_light">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:hint="ID Type">
-                    <AutoCompleteTextView
-                        android:id="@+id/spIdType"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:inputType="none" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:hint="ID Number">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etIdNumber"
+                    <!-- Section Header -->
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="48dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_view"
+                            android:tint="@color/accent_green"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="IDENTIFICATION INFORMATION"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp"
+                            android:letterSpacing="0.05" />
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="3dp"
+                            android:background="@drawable/bg_button_green"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="ID Type"
+                            app:boxStrokeColor="#804CAF50"
+                            app:hintTextColor="@color/text_secondary"
+                            app:startIconDrawable="@android:drawable/ic_menu_info_details"
+                            app:startIconTint="@color/accent_green">
+                            <AutoCompleteTextView
+                                android:id="@+id/spIdType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="none"
+                                android:textColor="@color/text_primary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:hint="ID Number"
+                            app:boxStrokeColor="#804CAF50"
+                            app:hintTextColor="@color/text_secondary"
+                            app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                            app:startIconTint="@color/accent_green">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etIdNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_tertiary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Vehicle Section -->
-            <TextView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVehicleInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🚗 Vehicle Information"
-                android:textStyle="bold"
-                android:textColor="@color/deep_blue"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_card_light">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="4dp">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="4dp"
-                    android:hint="Vehicle">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etVehicle"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:hint="Vehicle Model">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etVehicleModel"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="Plate Number">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPlateNumber"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <!-- Section Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_directions"
+                            android:tint="@color/accent_green"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="VEHICLE INFORMATION"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp"
+                            android:letterSpacing="0.05" />
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="3dp"
+                            android:background="@drawable/bg_button_green"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp"
+                            android:hint="Vehicle"
+                            app:boxStrokeColor="#804CAF50"
+                            app:hintTextColor="@color/text_secondary"
+                            app:startIconDrawable="@android:drawable/ic_menu_directions"
+                            app:startIconTint="@color/accent_green">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etVehicle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_tertiary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:hint="Vehicle Model"
+                            app:boxStrokeColor="#804CAF50"
+                            app:hintTextColor="@color/text_secondary"
+                            app:startIconDrawable="@android:drawable/ic_menu_info_details"
+                            app:startIconTint="@color/accent_green">
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etVehicleModel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_tertiary" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Plate Number"
+                        app:boxStrokeColor="#804CAF50"
+                        app:hintTextColor="@color/text_secondary"
+                        app:startIconDrawable="@android:drawable/ic_menu_sort_by_size"
+                        app:startIconTint="@color/accent_green">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPlateNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_tertiary" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Payment Method Section -->
-            <TextView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPaymentInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="💳 Payment Method"
-                android:textStyle="bold"
-                android:textColor="@color/deep_blue"
-                android:textSize="16sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:strokeWidth="1dp"
+                app:strokeColor="#E2E8F0"
+                android:background="@drawable/bg_card_light">
 
-            <RadioGroup
-                android:id="@+id/rgPaymentMethod"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rbCash"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cash"
-                    android:textSize="14sp"
-                    android:checked="true" />
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:id="@+id/rbOnline"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Online"
-                    android:textSize="14sp" />
-            </RadioGroup>
+                    <!-- Section Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="20dp">
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@android:drawable/ic_menu_agenda"
+                            android:tint="@color/accent_green"
+                            android:layout_marginEnd="12dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="PAYMENT METHOD"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:textSize="18sp"
+                            android:letterSpacing="0.05" />
+
+                        <View
+                            android:layout_width="40dp"
+                            android:layout_height="3dp"
+                            android:background="@drawable/bg_button_green"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <RadioGroup
+                        android:id="@+id/rgPaymentMethod"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rbCash"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cash"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_primary"
+                            android:buttonTint="@color/accent_green"
+                            android:checked="true"
+                            android:padding="8dp" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/rbOnline"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Online"
+                            android:textSize="16sp"
+                            android:textColor="@color/text_primary"
+                            android:buttonTint="@color/accent_green"
+                            android:padding="8dp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
             <!-- Action Buttons -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:paddingHorizontal="4dp"
+                android:gravity="center_vertical">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCancel"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_marginEnd="8dp"
-                    android:text="Cancel"
-                    android:textStyle="bold" />
+                    android:layout_marginEnd="12dp"
+                    android:text="CANCEL"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:letterSpacing="0.05"
+                    android:textColor="@color/text_primary"
+                    android:background="@drawable/bg_button_cancel_ripple"
+                    android:elevation="2dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="0dp"
+                    app:cornerRadius="16dp"
+                    app:strokeWidth="0dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSaveDetails"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:layout_marginStart="8dp"
-                    android:text="Save Details"
+                    android:layout_marginStart="12dp"
+                    android:text="SAVE DETAILS"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:background="@drawable/btn_gold_gradient" />
+                    android:textSize="15sp"
+                    android:letterSpacing="0.05"
+                    android:background="@drawable/bg_button_save_ripple"
+                    android:elevation="6dp"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="0dp"
+                    app:cornerRadius="16dp" />
 
             </LinearLayout>
 

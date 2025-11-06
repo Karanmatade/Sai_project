@@ -11,4 +11,59 @@
     <color name="card_bg">#FFFFFFFF</color>
     <color name="chip_green">#E6F4EA</color>
     <color name="chip_red">#FDE7E9</color>
+    
+    <!-- Light Theme Colors (Pricing Page Style) -->
+    <color name="bg_light_primary">#FFFFFF</color>
+    <color name="bg_light_secondary">#F8F9FA</color>
+    <color name="bg_light_tertiary">#F5F5F5</color>
+    <color name="bg_light_gradient_start">#FFFFFF</color>
+    <color name="bg_light_gradient_end">#F8F9FA</color>
+    
+    <!-- Accent Colors - Light Green Theme -->
+    <color name="accent_cyan">#4CAF50</color>
+    <color name="accent_teal">#4CAF50</color>
+    <color name="accent_purple">#4CAF50</color>
+    <color name="accent_pink">#E91E63</color>
+    <color name="accent_blue">#2196F3</color>
+    <color name="accent_gray">#94A3B8</color>
+    <color name="accent_green">#4CAF50</color>
+    <color name="accent_green_light">#66BB6A</color>
+    <color name="accent_green_dark">#388E3C</color>
+    
+    <!-- Text Colors (Dark for light background) -->
+    <color name="text_primary">#212529</color>
+    <color name="text_secondary">#6C757D</color>
+    <color name="text_tertiary">#ADB5BD</color>
+    <color name="text_accent">#4CAF50</color>
+    
+    <!-- Card Colors -->
+    <color name="card_bg_modern">#FFFFFF</color>
+    <color name="card_bg_light">#FFFFFF</color>
+    <color name="divider_color">#DEE2E6</color>
+    
+    <!-- Status Colors -->
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="error_red">#F44336</color>
+    
+    <!-- Chip Colors -->
+    <color name="chip_available_bg">#E8F5E9</color>
+    <color name="chip_booked_bg">#FFEBEE</color>
+    
+    <!-- Legacy colors for compatibility -->
+    <color name="neon_cyan">#4CAF50</color>
+    <color name="neon_blue">#2196F3</color>
+    <color name="neon_purple">#7C4DFF</color>
+    <color name="neon_pink">#E91E63</color>
+    <color name="dark_space">#FFFFFF</color>
+    <color name="dark_space_lighter">#F8F9FA</color>
+    <color name="glass_white">#E0FFFFFF</color>
+    <color name="glass_white_strong">#F0FFFFFF</color>
+    <color name="gradient_start">#FFFFFF</color>
+    <color name="gradient_end">#F8F9FA</color>
+    <color name="accent_modern">#4CAF50</color>
+    <color name="accent_secondary">#4CAF50</color>
+    <color name="accent_glow">#4CAF50</color>
+    <color name="card_glass">#E0FFFFFF</color>
+    <color name="text_glow">#212529</color>
 </resources>

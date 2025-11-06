@@ -3,7 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/deep_blue">
+    android:background="@drawable/bg_futuristic_gradient">
+
+    <!-- Animated Background Elements -->
+    <View
+        android:id="@+id/glow1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/bg_neon_glow"
+        android:alpha="0.4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="-150dp"
+        android:layout_marginStart="-150dp" />
+
+    <View
+        android:id="@+id/glow2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:background="@drawable/bg_neon_glow"
+        android:alpha="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="-125dp"
+        android:layout_marginEnd="-125dp" />
 
     <LinearLayout
         android:id="@+id/logoContainer"
@@ -16,22 +39,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:src="@mipmap/ic_launcher_round"
-            android:tint="@color/gold" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="20dp"
+            app:cardBackgroundColor="#20FFFFFF"
+            app:strokeWidth="2dp"
+            app:strokeColor="#506BC5D6"
+            android:layout_marginBottom="24dp">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@mipmap/ic_launcher_round"
+                android:tint="#9BC5D6"
+                android:padding="16dp" />
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/appTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hotel Booking App"
-            android:textColor="@color/white"
+            android:text="HOTEL BOOKING"
+            android:textColor="#9BC5D6"
             android:textStyle="bold"
-            android:textSize="22sp"
-            android:layout_marginTop="16dp" />
+            android:textSize="32sp"
+            android:letterSpacing="0.2"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SYSTEM"
+            android:textColor="#9BC5D6"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:letterSpacing="0.3"
+            android:layout_marginTop="4dp" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="4dp"
+            android:background="@drawable/bg_neon_button"
+            android:layout_marginTop="24dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
